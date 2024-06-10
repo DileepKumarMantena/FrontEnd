@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+        }
+
+        li {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        li:hover {
+            background-color: #2980b9;
+            cursor: pointer;
+        }
+
+        #inputField {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 14px;
+            width: 180px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #addButton {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #addButton:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic List Example</h1>
+    <input type="text" id="inputField" placeholder="Enter a list item">
+    <button id="addButton">Add Item</button>
+    <ul id="itemList"></ul>
+
+    <script>
+        document.getElementById('addButton').addEventListener('click', function() {
+            var inputField = document.getElementById('inputField');
+            var itemText = inputField.value;
+
+            if (itemText !== '') {
+                var li = document.createElement('li');
+                li.textContent = itemText;
+                document.getElementById('itemList').appendChild(li);
+                inputField.value = '';
+                inputField.focus();
+            }
+        });
+
+        document.getElementById('inputField').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('addButton').click();
+            }
+        });
+    </script>
+</body>
+</html>
