@@ -1,6 +1,6 @@
 
 class Mammal  {
-    void bark() {
+    void main() {
         System.out.println("This mammal walks");
     }
 }
